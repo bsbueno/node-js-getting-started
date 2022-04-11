@@ -1,0 +1,404 @@
+@import 'metronic/theme/style.scss';
+@import 'clinica-medica';
+
+$main: kt-get($kt-state-colors, brand, base);
+$light: kt-get($kt-state-colors, primary, base);
+
+@import 'reset';
+@import 'utils';
+@import 'modal';
+@import 'login';
+@import 'tree';
+
+body,
+html,
+#root,
+.login-wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+}
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.no-width {
+	width: 1%;
+}
+
+.table-loading {
+	position: relative;
+	zoom: 1;
+}
+
+.blockui-overlay {
+	z-index: 10;
+	border: none;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: default;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.position-relative {
+	position: relative;
+}
+
+.flexTable {
+	display: flex;
+
+	.currency {
+		flex: 1;
+		text-align: left;
+	}
+}
+
+.report-irregular figure {
+	width: 300px;
+	padding: 10px 20px;
+}
+
+.blockui {
+	background: #fff;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+	display: table;
+	table-layout: fixed;
+	border-radius: 4px;
+
+	span {
+		color: #74788d;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 0.75rem 1.2rem;
+		font-size: 1rem;
+		font-weight: 400;
+
+		> .kt-spinner {
+			margin-right: 1.25rem;
+		}
+	}
+}
+
+.table-drop.show .dropdown-menu {
+	top: 26px;
+	right: 10px;
+	margin: 0;
+	left: auto;
+
+	i {
+		font-size: 1rem;
+	}
+
+	.dropdown-item {
+		align-items: center;
+	}
+}
+
+.map {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 650px;
+}
+
+i.my-location {
+	font-size: 25px;
+	margin-left: 10px;
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #ffe2e8;
+	border-radius: 5px;
+	color: #db264a;
+
+	code {
+		background: transparent;
+	}
+}
+
+.alert {
+	pre,
+	code {
+		font-size: 1rem;
+		font-weight: bold;
+		font-family: inherit;
+	}
+
+	pre code {
+		display: block;
+		white-space: normal;
+		background: transparent;
+		color: #fd397a;
+	}
+}
+
+.kt-header__topbar {
+	.kt-badge--username {
+		color: kt-get($kt-state-colors, brand, base);
+		background: rgba(kt-get($kt-state-colors, brand, base), 0.1);
+	}
+
+	.dropdown-menu-right {
+		left: auto;
+		right: 15px;
+	}
+}
+
+.kt-notification .kt-notification__item:after {
+	font-family: 'Font Awesome 5 Free';
+	content: '\f105';
+	font-weight: 900;
+}
+
+.kt-header__brand-logo,
+.kt-header-mobile__logo {
+	img {
+		height: 40px;
+	}
+	span {
+		color: #fff;
+		font-size: 1.1rem;
+		padding-left: 12px;
+	}
+}
+
+.kt-datatable__cell {
+	&.vertical-top {
+		vertical-align: top !important;
+	}
+	&.width-30 {
+		width: 30%;
+	}
+
+	.react-select__control {
+		min-width: 140px;
+		border: 1px solid $input-border-color;
+
+		&:hover {
+			border-color: $input-border-color;
+		}
+	}
+
+	.react-select__control--is-focused {
+		border-color: $input-focus-border-color;
+		box-shadow: 0 0 0 1px $input-focus-border-color;
+
+		&:hover {
+			border-color: $input-focus-border-color;
+		}
+	}
+
+	.pre-wrap {
+		white-space: pre-wrap;
+	}
+}
+
+.form-group {
+	.react-select__control {
+		border: 1px solid $input-border-color;
+
+		&:hover {
+			border-color: $input-border-color;
+		}
+	}
+
+	.react-select__control--is-focused {
+		border-color: $input-focus-border-color;
+		box-shadow: 0 0 0 1px $input-focus-border-color;
+
+		&:hover {
+			border-color: $input-focus-border-color;
+		}
+	}
+
+	.react-select__placeholder {
+		color: $input-placeholder-color;
+	}
+
+	.react-select__multi-value__label {
+		font-weight: 500;
+	}
+
+	.is-invalid .react-select__control {
+		border-color: kt-state-color(danger, base);
+	}
+}
+
+.name-icon i {
+	margin-left: 5px;
+}
+
+.loading {
+	padding: 10px;
+	padding-bottom: 35px;
+	margin: 0 auto;
+}
+
+.button-add {
+	margin-right: 15px;
+}
+
+.map--marker {
+	font-size: 16px;
+}
+
+.kt-header__topbar-item.kt-header__topbar-item--user {
+	.dropdown-menu {
+		&.show {
+			display: block;
+		}
+
+		display: none;
+	}
+}
+
+.kt-grid.kt-grid--hor.kt-grid--root.kt-header__topbar--mobile-on {
+	.dropdown-menu {
+		display: block;
+		top: 60px;
+		right: 0;
+		left: unset;
+	}
+}
+
+.kt-datatable > .kt-datatable__table > .kt-datatable__body .kt-datatable__row.kt-street_row {
+	border-color: transparent;
+}
+
+.kt-datatable > .kt-datatable__table > .kt-datatable__body .kt-datatable__row.kt-street_row td {
+	padding-left: 50px !important;
+}
+
+#root .kt-grid.kt-grid--hor.kt-grid--root {
+	overflow-x: hidden;
+
+	.list.kt-datatable.kt-datatable--default.kt-datatable--brand.kt-datatable--loaded table {
+		display: block;
+		overflow-x: auto;
+	}
+}
+
+.kt-datatable
+	> .kt-datatable__table
+	> .kt-datatable__body
+	.kt-datatable__row.disabled
+	> .kt-datatable__cell {
+	color: #999;
+}
+
+.kt-datatable__row.bold {
+	font-weight: bold;
+}
+
+@media (max-width: 1024) {
+	.kt-content.kt-grid__item {
+		&.kt-grid__item--fluid {
+			flex: none;
+			display: block;
+			width: 96%;
+			padding: 0 15px;
+		}
+
+		.list.kt-datatable.kt-datatable--default.kt-datatable--brand.kt-datatable--loaded {
+			overflow-x: auto;
+
+			table {
+				min-width: 320px;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.kt-header-mobile {
+		&.kt-header-mobile--fixed {
+			flex-direction: row;
+		}
+
+		.kt-header-mobile__logo {
+			flex: 3;
+		}
+
+		.kt-header-mobile__toolbar {
+			flex: 1;
+		}
+	}
+
+	.kt-aside.kt-aside--fixed.kt-grid__item.kt-grid.kt-grid--desktop.kt-grid--hor-desktop {
+		left: -375px;
+	}
+
+	.kt-aside--on {
+		.kt-aside.kt-aside--fixed.kt-grid__item.kt-grid.kt-grid--desktop.kt-grid--hor-desktop {
+			left: 0px;
+		}
+	}
+}
+
+@media (max-width: 420px) {
+	.rccs {
+		display: none;
+	}
+
+	.kt-header-mobile__logo {
+		span {
+			display: none;
+		}
+	}
+}
+
+.image-inspection {
+	max-width: 150px;
+	max-height: 200px;
+	width: auto;
+	height: auto;
+	margin: 5px;
+}
+
+.login-box .logo {
+	padding: 0;
+	img {
+		border-radius: 6px;
+	}
+}
+
+.marginLeft {
+	display: flex;
+	align-items: center; // vertically center
+	justify-content: flex-end;
+	margin-right: 20px;
+}
+
+.sms-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+
+.sms-item {
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+
+.sms-item button {
+	margin-left: 10px;
+	padding: 6px;
+}
+
+.sms-item .btn i {
+	font-size: 0.9rem;
+}

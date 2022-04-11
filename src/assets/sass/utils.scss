@@ -1,0 +1,108 @@
+$gap: 64px;
+$tablet: 769px;
+$desktop: 1025px;
+$widescreen: 1152px + (2 * $gap);
+$fullhd: 1344px + (2 * $gap);
+
+@mixin arrow($color: transparent) {
+    border: 3px solid $color;
+    border-radius: 2px;
+    border-right: 0;
+    border-top: 0;
+    content: ' ';
+    display: block;
+    height: 0.625em;
+    margin-top: -0.4375em;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    width: 0.625em;
+}
+
+@mixin placeholder() {
+    $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input';
+
+    @each $placeholder in $placeholders {
+        &:#{$placeholder}-placeholder {
+            @content;
+        }
+    }
+}
+
+@mixin loader() {
+    animation: spin 500ms infinite linear;
+    border: 2px solid #fff;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: '';
+    display: block;
+    height: 1em;
+    position: relative;
+    width: 1em;
+}
+
+@mixin center($width, $height: 0) {
+    position: absolute;
+
+    @if $height != 0 {
+        left: calc(50% - (#{$width} / 2));
+        top: calc(50% - (#{$height} / 2));
+    } @else {
+        left: calc(50% - (#{$width} / 2));
+        top: calc(50% - (#{$width} / 2));
+    }
+}
+
+@mixin tablet() {
+    @media screen and (min-width: $tablet), print {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin widescreen() {
+    @media screen and (min-width: $widescreen) {
+        @content;
+    }
+}
+
+@mixin fullhd() {
+    @media screen and (min-width: $fullhd) {
+        @content;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes move-up {
+    from {
+        transform: translateY(10px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}

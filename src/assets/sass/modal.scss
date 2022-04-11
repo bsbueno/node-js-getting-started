@@ -1,0 +1,8 @@
+.modal .modal-content .modal-header .close {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+
+    &:before {
+        content: "\f00d";
+    }
+}
